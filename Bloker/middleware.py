@@ -29,6 +29,10 @@ class Country_ip_Middleware:
    self.geoip=GeoIP2(settings.GEOIP_PATH)
    
   def __call__(self,request):
+    
+  #  simulated_ip='101.81.216.0'
+  #  request.META["HTTP_X_FORWARDED_FOR"] = simulated_ip 
+    
    user_ip=request.META.get('REMOTE_ADDR')
    forwarded_user_ip=request.META.get('HTTP_X_FORWARDED_FOR')
 
@@ -36,6 +40,7 @@ class Country_ip_Middleware:
    
    try:
     country=self.geoip.country(ip)["country_code"]
+    print(country)
     if country in settings.BLOCKED_COUNTRIES:
      return HttpResponseForbidden('Access denied')
    except:

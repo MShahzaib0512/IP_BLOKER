@@ -114,7 +114,7 @@ USE_I18N = True
 
 USE_TZ = True
 
-
+ALLOWED_HOSTS=['.ngrok-free.app','127.0.0.1']
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
@@ -126,4 +126,4 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 GEOIP_PATH = BASE_DIR / "geo-ip"
-BLOCKED_COUNTRIES = ["CN", "RU"] #(China, Russia)
+BLOCKED_COUNTRIES = ["CN", "RU", "US", "IN"] #(China, Russia)
